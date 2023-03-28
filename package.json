@@ -1,0 +1,68 @@
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "main": "web/backend/index.js",
+  "license": "UNLICENSED",
+  "repository": "https://github.com/Michael-Gibbons/OSB",
+  "type": "module",
+  "scripts": {
+    "shopify": "shopify",
+    "build": "node ./scripts/build.js && shopify app build",
+    "push-extensions": "node ./scripts/build.js && npm run deploy",
+    "dev": "node ./scripts/build.js && npm run osb init && concurrently --kill-others --raw \"node ./scripts/dev.js\" \"shopify app dev\"",
+    "info": "shopify app info",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy",
+    "start": "npm run migrate && node web/backend/index.js",
+    "osb": "node ./cli/index.js",
+    "migrate": "cd web/backend && npx prisma migrate deploy",
+    "update-package-lock": "npm i --package-lock-only && cd web/frontend && npm i --package-lock-only && cd ../.. && cd web/backend && npm i --package-lock-only",
+    "prune-branches": "git checkout main && git pull && git branch --merged | grep -v \\* | xargs git branch -D && git fetch --prune"
+  },
+  "dependencies": {
+    "@shopify/app": "^3.44.1",
+    "@shopify/cli": "^3.44.1",
+    "commander": "^10.0.0",
+    "fs-extra": "^11.1.0",
+    "inquirer": "^9.1.4",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@michael.gibbons/doc-me": "^1.1.0",
+    "concurrently": "^7.6.0"
+  },
+  "doc": [
+    {
+      "name": "prisma",
+      "value": "https://www.prisma.io/docs/guides"
+    },
+    {
+      "name": "bullmq",
+      "value": "https://docs.bullmq.io/guide/introduction"
+    },
+    {
+      "name": "polaris",
+      "value": "https://polaris.shopify.com/components"
+    },
+    {
+      "name": "shopify REST api",
+      "value": "https://shopify.dev/api/admin-rest"
+    },
+    {
+      "name": "shopify webhook topics",
+      "value": "https://shopify.dev/api/admin-rest/2022-01/resources/webhook#resource-object"
+    },
+    {
+      "name": "shopify access scopes",
+      "value": "https://shopify.dev/api/usage/access-scopes"
+    },
+    {
+      "name": "OSB",
+      "value": "https://michaelgibbons.info/OSB/#/"
+    },
+    {
+      "name": "react query",
+      "value": "https://react-query-v3.tanstack.com/overview"
+    }
+  ]
+}

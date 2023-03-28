@@ -1,0 +1,70 @@
+.app-name::after{
+  content: '\A An Opinionated Shopify App Boiler';
+  font-size: 14px;
+  white-space: pre; /* or pre-wrap */
+}
+
+.markdown-section p {
+  margin: 2em 0;
+  /* max-width: 900px; */
+  max-width: 80ch;
+  padding-left: 10px;
+}
+
+.markdown-section h1 {
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+}
+
+.markdown-section h1:not(:first-of-type){
+  padding-top:60px;
+}
+
+.markdown-section h2 span {
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+
+article.markdown-section{
+  max-width: 900px;
+  margin: 0 100px auto;
+}
+
+@media only screen and (max-width: 775px) {
+  article.markdown-section{
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  #docsify-darklight-theme{
+    left: 85%;
+    top: 41px;
+  }
+
+  .sidebar-toggle{
+    bottom: unset;
+    padding: 20px 30px 20px 20px;
+  }
+}
+
+.markdown-section table {
+  margin: 40px 0;
+}
+
+.markdown-section td,
+.markdown-section th {
+  border-color: var(--tableBorderColor);
+}
+
+@media only screen and (min-width: 1500px) {
+  .markdown-section, aside{
+    margin-left:200px
+  }
+  article.markdown-section{
+    max-width: 900px;
+    margin: 0 300px auto;
+  }
+  body.close .sidebar {
+    transform: translateX(-500px);
+  }
+}
